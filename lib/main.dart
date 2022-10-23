@@ -45,18 +45,18 @@ class _HomePageState extends State<HomePage> {
         title: Text('Mikes Calculator'),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 5),
+        padding: EdgeInsets.symmetric(horizontal: 10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Padding(padding: EdgeInsets.all(10.00),
+                Padding(padding: EdgeInsets.all(5),
                   child: Text(
                     '0',
                     textAlign: TextAlign.left,
-                    style: TextStyle(color: Colors.white, fontSize: 100),
+                    style: TextStyle(color: Colors.white, fontSize: 120),
                   ),
                 )
               ],
@@ -67,11 +67,11 @@ class _HomePageState extends State<HomePage> {
                 Button('AC',Colors.grey.shade800, Colors.white),
                 Button('+/-',Colors.grey.shade800, Colors.white),
                 Button('%',Colors.grey.shade800, Colors.white),
-                Button('/',Colors.amber.shade700, Colors.white),
+                Button('/',Colors.grey.shade700, Colors.white),
               ],
             ),
             SizedBox(
-              height: 10,
+              height: 35,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -83,7 +83,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             SizedBox(
-              height: 10,
+              height: 35,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             SizedBox(
-              height: 10,
+              height: 35,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -107,7 +107,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             SizedBox(
-              height: 10,
+              height: 35,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -115,10 +115,12 @@ class _HomePageState extends State<HomePage> {
                 Button('0',Colors.grey.shade800, Colors.white),
                 Button('.',Colors.grey.shade800, Colors.white),
                 Button('=',Colors.grey.shade800, Colors.white),
+                Button('C',Colors.grey.shade800, Colors.white),
+
               ],
             ),
             SizedBox(
-              height: 10,
+              height: 35,
             ),
           ],
         ),
