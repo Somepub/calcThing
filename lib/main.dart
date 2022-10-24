@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
     return Container(
       child: ElevatedButton(
         onPressed: (){
+          print('Button pressed');
 
         },
         child: Text(buttontext,style:TextStyle(
@@ -79,7 +80,7 @@ class _HomePageState extends State<HomePage> {
                 Button('7',Colors.grey.shade800, Colors.white),
                 Button('8',Colors.grey.shade800, Colors.white),
                 Button('9',Colors.grey.shade800, Colors.white),
-                Button('X',Colors.amber.shade700, Colors.white),
+                Button('X',Colors.grey.shade700, Colors.white),
               ],
             ),
             SizedBox(
@@ -91,7 +92,7 @@ class _HomePageState extends State<HomePage> {
                 Button('4',Colors.grey.shade800, Colors.white),
                 Button('5',Colors.grey.shade800, Colors.white),
                 Button('6',Colors.grey.shade800, Colors.white),
-                Button('-',Colors.amber.shade700, Colors.white),
+                Button('-',Colors.grey.shade700, Colors.white),
               ],
             ),
             SizedBox(
@@ -103,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                 Button('1',Colors.grey.shade800, Colors.white),
                 Button('2',Colors.grey.shade800, Colors.white),
                 Button('3',Colors.grey.shade800, Colors.white),
-                Button('+',Colors.amber.shade700, Colors.white),
+                Button('+',Colors.grey.shade700, Colors.white),
               ],
             ),
             SizedBox(
