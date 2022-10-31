@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget{
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context){
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: FirstPage(),
     );
@@ -13,6 +15,8 @@ class MyApp extends StatelessWidget{
 }
 
 class FirstPage extends StatefulWidget {
+  const FirstPage({super.key});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -37,7 +41,7 @@ class _HomePageState extends State<FirstPage> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text("Mike's Calculator"),
+        title: const Text("Mike's Calculator"),
         actions: <Widget>[
           TextButton(
             onPressed: () {Navigator.push(
@@ -57,13 +61,13 @@ class _HomePageState extends State<FirstPage> {
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: [
+              children: const [
                 Padding(padding: EdgeInsets.all(5),
                   child: Text(
                     '0',
@@ -82,7 +86,7 @@ class _HomePageState extends State<FirstPage> {
                 Button('/',Colors.grey.shade800, Colors.white),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 35,
             ),
             Row(
@@ -94,7 +98,7 @@ class _HomePageState extends State<FirstPage> {
                 Button('X',Colors.grey.shade800, Colors.white),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 35,
             ),
             Row(
@@ -106,7 +110,7 @@ class _HomePageState extends State<FirstPage> {
                 Button('-',Colors.grey.shade800, Colors.white),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 35,
             ),
             Row(
@@ -118,7 +122,7 @@ class _HomePageState extends State<FirstPage> {
                 Button('+',Colors.grey.shade800, Colors.white),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 35,
             ),
             Row(
@@ -130,7 +134,7 @@ class _HomePageState extends State<FirstPage> {
                 Button('C',Colors.grey.shade800, Colors.white),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 35,
             ),
           ],
@@ -146,6 +150,7 @@ class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
         title: const Text('Kilo to Mile Converter'),
       ),
@@ -160,5 +165,3 @@ class SecondPage extends StatelessWidget {
     );
   }
 }
-
-
