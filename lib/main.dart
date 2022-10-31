@@ -7,34 +7,29 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context){
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: FirstPage(),
     );
   }
 }
 
-class HomePage extends StatefulWidget {
+class FirstPage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<FirstPage> {
   Widget Button(String buttontext, Color buttoncolor,Color textcolor){
     return Container(
       child: ElevatedButton(
         onPressed: (){
           print('Button pressed');
-
         },
         child: Text(buttontext,style:TextStyle(
           fontSize: 20,
           color: textcolor
-
-
         ),
     ),
-
       ),
-
     );
   }
   @override
@@ -42,8 +37,20 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text('Mikes Calculator'),
+        title: Text("Mike's Calculator"),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {},
+            child: Container(
+              color: Colors.purple,
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+              child: const Text(
+                'Next Page',
+                style: TextStyle(color: Colors.white, fontSize: 13.0),
+              ),
+            ),
+          ),
+        ],
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10),
@@ -117,7 +124,6 @@ class _HomePageState extends State<HomePage> {
                 Button('.',Colors.grey.shade800, Colors.white),
                 Button('=',Colors.grey.shade800, Colors.white),
                 Button('C',Colors.grey.shade800, Colors.white),
-
               ],
             ),
             SizedBox(
