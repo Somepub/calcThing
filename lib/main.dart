@@ -23,17 +23,15 @@ class FirstPage extends StatefulWidget {
 
 class _HomePageState extends State<FirstPage> {
   Widget Button(String buttontext, Color buttoncolor,Color textcolor){
-    return Container(
-      child: ElevatedButton(
-        onPressed: (){
-          print('Button pressed');
-        },
-        child: Text(buttontext,style:TextStyle(
-          fontSize: 20,
-          color: textcolor
-        ),
-    ),
+    return ElevatedButton(
+      onPressed: (){
+        print('Button pressed');
+      },
+      child: Text(buttontext,style:TextStyle(
+        fontSize: 20,
+        color: textcolor
       ),
+    ),
     );
   }
   @override
