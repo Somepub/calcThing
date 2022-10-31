@@ -40,7 +40,11 @@ class _HomePageState extends State<FirstPage> {
         title: Text("Mike's Calculator"),
         actions: <Widget>[
           TextButton(
-            onPressed: () {},
+            onPressed: () {Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const SecondPage()),
+            );
+            },
             child: Container(
               color: Colors.purple,
               padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
@@ -130,6 +134,27 @@ class _HomePageState extends State<FirstPage> {
               height: 35,
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class SecondPage extends StatelessWidget {
+  const SecondPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Kilo to Mile Converter'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('Go back!'),
         ),
       ),
     );
