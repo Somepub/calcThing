@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+
 
 
 void main() => runApp(const MyApp());
@@ -148,10 +150,98 @@ class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        title: const Text('Kilo to Mile Converter'),
+        appBar: AppBar(
+          title: Text("Converter"),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CalculationWidget(),
+        )
+    );
+  }
+}
+
+class CalculationWidget extends StatefulWidget {
+  @override
+  _CalculationWidgetState createState() => _CalculationWidgetState();
+}
+
+class _CalculationWidgetState extends State<CalculationWidget> {
+  late double m;
+  String result = '';
+  bool dataIsEntered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(2.0),
+            child: Row(
+              children: [
+                Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(hintText: 'Value to convert'),
+                      keyboardType: TextInputType.number,
+                      onChanged: (String number) {
+                        if (number.isNotEmpty) {
+                          this.m = double.parse(number.replaceAll(",", '.'));
+                          if (this.m != null) {
+                            setState(() {
+                              dataIsEntered = true;
+                            });
+                          }
+                        } else {
+                          this.m = 0;
+                          setState(() {
+                            dataIsEntered = false;
+                          });
+                        }
+                      },
+                    )),
+
+                Expanded(
+                  child: Text(
+                    "$result",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(2.0),
+            child: ElevatedButton(
+              child: Text("To miles"),
+              onPressed: dataIsEntered
+                  ? () {
+                setState(() {
+                  result = miles(m).toString();
+                });
+              }
+                  : null,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(2.0),
+            child: ElevatedButton(
+              child: Text("To kilometers"),
+              onPressed: dataIsEntered
+                  ? () {
+                setState(() {
+                  result = Kilometers(m).toString();
+                });
+              }
+                  : null,
+            ),
+          ),
+        ],
       ),
     );
   }
+  double miles(double number) => (number / 1.609);
+
+  double Kilometers(double number) => (number * 1.609);
+
 }
