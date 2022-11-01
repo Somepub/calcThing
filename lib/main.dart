@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
+
 void main() => runApp(const MyApp());
+
 
 class MyApp extends StatelessWidget{
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context){
     return const MaterialApp(
@@ -16,7 +17,6 @@ class MyApp extends StatelessWidget{
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});
-
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -151,14 +151,6 @@ class SecondPage extends StatelessWidget {
       backgroundColor: Colors.black,
       appBar: AppBar(
         title: const Text('Kilo to Mile Converter'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Go back!'),
-        ),
       ),
     );
   }
