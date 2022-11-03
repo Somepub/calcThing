@@ -7,7 +7,6 @@ class MyApp extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     throw UnimplementedError();
   }}
 
@@ -21,7 +20,7 @@ class SecondPage extends StatelessWidget {
           title: const Text("Converter"),
         ),
         body: const Padding(
-          padding: EdgeInsets.all(1.0),
+          padding: EdgeInsets.all(2.0),
           child: CalculationWidget(),
         )
     );
@@ -71,7 +70,6 @@ class CalculationWidgetState extends State<CalculationWidget> {
             ),
           ),
 
-
           Expanded(
             child: Text(
               result,
@@ -107,11 +105,10 @@ class CalculationWidgetState extends State<CalculationWidget> {
             ),
           ),
         ],
+
       ),
     );
   }
   double miles(double number) => (number / 1.609);
-
   double kilometers(double number) => (number * 1.609);
-
 }
