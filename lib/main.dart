@@ -74,7 +74,7 @@ class HomePageState extends State<FirstPage> {
                   child: Text(
                     '0',
                     textAlign: TextAlign.left,
-                    style: TextStyle(color: Colors.white, fontSize: 120),
+                    style: TextStyle(color: Colors.white, fontSize: 100),
                   ),
                 )
               ],
@@ -89,7 +89,7 @@ class HomePageState extends State<FirstPage> {
               ],
             ),
             const SizedBox(
-              height: 35,
+              height: 40,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -101,7 +101,7 @@ class HomePageState extends State<FirstPage> {
               ],
             ),
             const SizedBox(
-              height: 35,
+              height: 40,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -113,7 +113,7 @@ class HomePageState extends State<FirstPage> {
               ],
             ),
             const SizedBox(
-              height: 35,
+              height: 40,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -125,7 +125,7 @@ class HomePageState extends State<FirstPage> {
               ],
             ),
             const SizedBox(
-              height: 35,
+              height: 40,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -137,7 +137,7 @@ class HomePageState extends State<FirstPage> {
               ],
             ),
             const SizedBox(
-              height: 35,
+              height: 40,
             ),
           ],
         ),
