@@ -1,5 +1,5 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
 
 
@@ -24,14 +24,16 @@ class FirstPage extends StatefulWidget {
 }
 
 class _HomePageState extends State<FirstPage> {
-  Widget Button(String buttontext, Color buttoncolor,Color textcolor){
+  Widget Button(String buttonText, Color buttonColor,Color textColor){
     return ElevatedButton(
       onPressed: (){
-        print('Button pressed');
+        if (kDebugMode) {
+          print('Button pressed');
+        }
       },
-      child: Text(buttontext,style:TextStyle(
+      child: Text(buttonText,style:TextStyle(
         fontSize: 20,
-        color: textcolor
+        color: textColor
       ),
     ),
     );
@@ -151,7 +153,7 @@ class SecondPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Converter"),
+          title: const Text("Converter"),
         ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -177,43 +179,43 @@ class _CalculationWidgetState extends State<CalculationWidget> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(2.0),
+            padding: const EdgeInsets.all(20.0),
             child: Row(
               children: [
                 Expanded(
                     child: TextField(
-                      decoration: InputDecoration(hintText: 'Value to convert'),
+                      decoration: const InputDecoration(hintText: 'Value to convert'),
                       keyboardType: TextInputType.number,
                       onChanged: (String number) {
                         if (number.isNotEmpty) {
-                          this.m = double.parse(number.replaceAll(",", '.'));
-                          if (this.m != null) {
-                            setState(() {
-                              dataIsEntered = true;
-                            });
-                          }
+                          m = double.parse(number.replaceAll(",", '.'));
+                          setState(() {
+                            dataIsEntered = true;
+                          });
                         } else {
-                          this.m = 0;
+                          m = 0;
                           setState(() {
                             dataIsEntered = false;
                           });
                         }
                       },
                     )),
-
-                Expanded(
-                  child: Text(
-                    "$result",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
-                  ),
-                )
               ],
             ),
           ),
+          const Padding(
+            padding: EdgeInsets.all(10.0),
+          ),
+          Expanded(
+            child: Text(
+              result,
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+            ),
+          ),
+
           Padding(
             padding: const EdgeInsets.all(2.0),
             child: ElevatedButton(
-              child: Text("To miles"),
               onPressed: dataIsEntered
                   ? () {
                 setState(() {
@@ -221,19 +223,24 @@ class _CalculationWidgetState extends State<CalculationWidget> {
                 });
               }
                   : null,
+              child: const Text("To miles"),
             ),
           ),
+          const Padding(
+            padding: EdgeInsets.all(2.0),
+
+          ),
           Padding(
-            padding: const EdgeInsets.all(2.0),
+            padding: const EdgeInsets.all(100.0),
             child: ElevatedButton(
-              child: Text("To kilometers"),
               onPressed: dataIsEntered
                   ? () {
                 setState(() {
-                  result = Kilometers(m).toString();
+                  result = kilometers(m).toString();
                 });
               }
                   : null,
+              child: const Text("To kilometers"),
             ),
           ),
         ],
@@ -242,6 +249,6 @@ class _CalculationWidgetState extends State<CalculationWidget> {
   }
   double miles(double number) => (number / 1.609);
 
-  double Kilometers(double number) => (number * 1.609);
+  double kilometers(double number) => (number * 1.609);
 
 }
