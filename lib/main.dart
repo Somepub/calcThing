@@ -1,35 +1,35 @@
+import 'package:calc/button_function.dart';
 import 'package:calc/screen_two.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 
 void main() => runApp(const MyApp());
 
 
-class MyApp extends StatelessWidget{
-  const MyApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FirstPage(),
+      home: Calculator(),
     );
   }
 }
 
-class FirstPage extends StatefulWidget {
-  const FirstPage({super.key});
+class Calculator extends StatefulWidget {
+  const Calculator({Key? key}) : super(key: key);
+
   @override
-  HomePageState createState() => HomePageState();
+  State<Calculator> createState() => _CalculatorState();
 }
 
-class HomePageState extends State<FirstPage> {
+class _CalculatorState extends State<Calculator> {
   Widget button(String buttonText, Color buttonColor,Color textColor){
     return ElevatedButton(
       onPressed: (){
-        if (kDebugMode) {
-          print('Button pressed');
-        }
+        buttonFunction();
       },
       child: Text(buttonText,style:TextStyle(
         fontSize: 20,
@@ -46,7 +46,8 @@ class HomePageState extends State<FirstPage> {
         title: const Text("Mike's Calculator"),
         actions: <Widget>[
           TextButton(
-            onPressed: () {Navigator.push(
+            onPressed: () {
+              Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const SecondPage()),
             );
@@ -145,3 +146,4 @@ class HomePageState extends State<FirstPage> {
     );
   }
 }
+
