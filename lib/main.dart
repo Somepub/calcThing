@@ -56,7 +56,7 @@ class HomePageState extends State<FirstPage> {
               color: Colors.purple,
               padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
               child: const Text(
-                'Next Page',
+                'Converter',
                 style: TextStyle(color: Colors.white, fontSize: 13.0),
               ),
             ),

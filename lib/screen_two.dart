@@ -21,7 +21,7 @@ class SecondPage extends StatelessWidget {
           title: const Text("Converter"),
         ),
         body: const Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(15.0),
           child: CalculationWidget(),
         )
     );
@@ -46,7 +46,7 @@ class CalculationWidgetState extends State<CalculationWidget> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(30.0),
             child: Row(
               children: [
                 Expanded(
@@ -76,12 +76,12 @@ class CalculationWidgetState extends State<CalculationWidget> {
           Expanded(
             child: Text(
               result,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
             ),
           ),
 
           Padding(
-            padding: const EdgeInsets.all(2.0),
+            padding: const EdgeInsets.all(20.0),
             child: ElevatedButton(
               onPressed: dataIsEntered
                   ? () {
@@ -93,12 +93,9 @@ class CalculationWidgetState extends State<CalculationWidget> {
               child: const Text("To miles"),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(2.0),
 
-          ),
           Padding(
-            padding: const EdgeInsets.all(100.0),
+            padding: const EdgeInsets.all(35.0),
             child: ElevatedButton(
               onPressed: dataIsEntered
                   ? () {
