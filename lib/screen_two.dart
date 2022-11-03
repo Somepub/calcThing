@@ -21,7 +21,7 @@ class SecondPage extends StatelessWidget {
           title: const Text("Converter"),
         ),
         body: const Padding(
-          padding: EdgeInsets.all(15.0),
+          padding: EdgeInsets.all(1.0),
           child: CalculationWidget(),
         )
     );
@@ -46,7 +46,7 @@ class CalculationWidgetState extends State<CalculationWidget> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(30.0),
+            padding: const EdgeInsets.all(50.0),
             child: Row(
               children: [
                 Expanded(
@@ -70,9 +70,8 @@ class CalculationWidgetState extends State<CalculationWidget> {
               ],
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(10.0),
-          ),
+
+
           Expanded(
             child: Text(
               result,
@@ -81,7 +80,7 @@ class CalculationWidgetState extends State<CalculationWidget> {
           ),
 
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(0),
             child: ElevatedButton(
               onPressed: dataIsEntered
                   ? () {
@@ -95,7 +94,7 @@ class CalculationWidgetState extends State<CalculationWidget> {
           ),
 
           Padding(
-            padding: const EdgeInsets.all(35.0),
+            padding: const EdgeInsets.all(100),
             child: ElevatedButton(
               onPressed: dataIsEntered
                   ? () {
