@@ -20,11 +20,11 @@ class MyApp extends StatelessWidget{
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _HomePageState extends State<FirstPage> {
-  Widget Button(String buttonText, Color buttonColor,Color textColor){
+class HomePageState extends State<FirstPage> {
+  Widget button(String buttonText, Color buttonColor,Color textColor){
     return ElevatedButton(
       onPressed: (){
         if (kDebugMode) {
@@ -82,10 +82,10 @@ class _HomePageState extends State<FirstPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Button('AC',Colors.grey.shade800, Colors.white),
-                Button('+/-',Colors.grey.shade800, Colors.white),
-                Button('%',Colors.grey.shade800, Colors.white),
-                Button('/',Colors.grey.shade800, Colors.white),
+                button('AC',Colors.grey.shade800, Colors.white),
+                button('+/-',Colors.grey.shade800, Colors.white),
+                button('%',Colors.grey.shade800, Colors.white),
+                button('/',Colors.grey.shade800, Colors.white),
               ],
             ),
             const SizedBox(
@@ -94,10 +94,10 @@ class _HomePageState extends State<FirstPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Button('7',Colors.grey.shade800, Colors.white),
-                Button('8',Colors.grey.shade800, Colors.white),
-                Button('9',Colors.grey.shade800, Colors.white),
-                Button('X',Colors.grey.shade800, Colors.white),
+                button('7',Colors.grey.shade800, Colors.white),
+                button('8',Colors.grey.shade800, Colors.white),
+                button('9',Colors.grey.shade800, Colors.white),
+                button('X',Colors.grey.shade800, Colors.white),
               ],
             ),
             const SizedBox(
@@ -106,10 +106,10 @@ class _HomePageState extends State<FirstPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Button('4',Colors.grey.shade800, Colors.white),
-                Button('5',Colors.grey.shade800, Colors.white),
-                Button('6',Colors.grey.shade800, Colors.white),
-                Button('-',Colors.grey.shade800, Colors.white),
+                button('4',Colors.grey.shade800, Colors.white),
+                button('5',Colors.grey.shade800, Colors.white),
+                button('6',Colors.grey.shade800, Colors.white),
+                button('-',Colors.grey.shade800, Colors.white),
               ],
             ),
             const SizedBox(
@@ -118,10 +118,10 @@ class _HomePageState extends State<FirstPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Button('1',Colors.grey.shade800, Colors.white),
-                Button('2',Colors.grey.shade800, Colors.white),
-                Button('3',Colors.grey.shade800, Colors.white),
-                Button('+',Colors.grey.shade800, Colors.white),
+                button('1',Colors.grey.shade800, Colors.white),
+                button('2',Colors.grey.shade800, Colors.white),
+                button('3',Colors.grey.shade800, Colors.white),
+                button('+',Colors.grey.shade800, Colors.white),
               ],
             ),
             const SizedBox(
@@ -130,10 +130,10 @@ class _HomePageState extends State<FirstPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Button('0',Colors.grey.shade800, Colors.white),
-                Button('.',Colors.grey.shade800, Colors.white),
-                Button('=',Colors.grey.shade800, Colors.white),
-                Button('C',Colors.grey.shade800, Colors.white),
+                button('0',Colors.grey.shade800, Colors.white),
+                button('.',Colors.grey.shade800, Colors.white),
+                button('=',Colors.grey.shade800, Colors.white),
+                button('C',Colors.grey.shade800, Colors.white),
               ],
             ),
             const SizedBox(
@@ -155,8 +155,8 @@ class SecondPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Converter"),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
+        body: const Padding(
+          padding: EdgeInsets.all(8.0),
           child: CalculationWidget(),
         )
     );
@@ -164,11 +164,13 @@ class SecondPage extends StatelessWidget {
 }
 
 class CalculationWidget extends StatefulWidget {
+  const CalculationWidget({super.key});
+
   @override
-  _CalculationWidgetState createState() => _CalculationWidgetState();
+  CalculationWidgetState createState() => CalculationWidgetState();
 }
 
-class _CalculationWidgetState extends State<CalculationWidget> {
+class CalculationWidgetState extends State<CalculationWidget> {
   late double m;
   String result = '';
   bool dataIsEntered = false;
