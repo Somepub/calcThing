@@ -40,7 +40,7 @@ class _CalculatorState extends State<Calculator> {
               padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
               child: const Text(
                 'Converter',
-                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                style: TextStyle(color: Colors.white, fontSize: 15.0),
               ),
             ),
           ),
@@ -56,7 +56,7 @@ class _CalculatorState extends State<Calculator> {
               children: const [
                 Padding(padding: EdgeInsets.all(5),
                   child: Text(
-                    '0',
+                    '',
                     textAlign: TextAlign.left,
                     style: TextStyle(color: Colors.white, fontSize: 100),
                   ),
@@ -73,7 +73,7 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
             const SizedBox(
-              height: 40,
+              height: 45,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -85,7 +85,7 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
             const SizedBox(
-              height: 40,
+              height: 45,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -97,7 +97,7 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
             const SizedBox(
-              height: 40,
+              height: 45,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -109,7 +109,7 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
             const SizedBox(
-              height: 40,
+              height: 45,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -121,7 +121,7 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
             const SizedBox(
-              height: 40,
+              height: 45,
             ),
           ],
         ),
