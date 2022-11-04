@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'formulas.dart';
+
+
 
 
 class SecondPage extends StatelessWidget {
@@ -101,6 +104,4 @@ class CalculationWidgetState extends State<CalculationWidget> {
       ),
     );
   }
-  double miles(double number) => (number / 1.609);
-  double kilometers(double number) => (number * 1.609);
 }
