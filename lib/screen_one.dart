@@ -10,14 +10,13 @@ class Calculator extends StatefulWidget {
 }
 
 class _CalculatorState extends State<Calculator> {
-  Widget button(String buttonText, Color buttonColor,Color textColor){
+  Widget button(String buttonText){
     return ElevatedButton(
       onPressed: (){
         buttonFunction();
       },
-      child: Text(buttonText,style:TextStyle(
+      child: Text(buttonText,style:const TextStyle(
           fontSize: 20,
-          color: textColor
       ),
       ),
     );
@@ -67,10 +66,10 @@ class _CalculatorState extends State<Calculator> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                button('AC',Colors.grey.shade800, Colors.white),
-                button('+/-',Colors.grey.shade800, Colors.white),
-                button('%',Colors.grey.shade800, Colors.white),
-                button('/',Colors.grey.shade800, Colors.white),
+                button('AC'),
+                button('+/-'),
+                button('%'),
+                button('/'),
               ],
             ),
             const SizedBox(
@@ -79,10 +78,10 @@ class _CalculatorState extends State<Calculator> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                button('7',Colors.grey.shade800, Colors.white),
-                button('8',Colors.grey.shade800, Colors.white),
-                button('9',Colors.grey.shade800, Colors.white),
-                button('X',Colors.grey.shade800, Colors.white),
+                button('7'),
+                button('8'),
+                button('9'),
+                button('X'),
               ],
             ),
             const SizedBox(
@@ -91,10 +90,10 @@ class _CalculatorState extends State<Calculator> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                button('4',Colors.grey.shade800, Colors.white),
-                button('5',Colors.grey.shade800, Colors.white),
-                button('6',Colors.grey.shade800, Colors.white),
-                button('-',Colors.grey.shade800, Colors.white),
+                button('4'),
+                button('5'),
+                button('6'),
+                button('-'),
               ],
             ),
             const SizedBox(
@@ -103,10 +102,10 @@ class _CalculatorState extends State<Calculator> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                button('1',Colors.grey.shade800, Colors.white),
-                button('2',Colors.grey.shade800, Colors.white),
-                button('3',Colors.grey.shade800, Colors.white),
-                button('+',Colors.grey.shade800, Colors.white),
+                button('1'),
+                button('2'),
+                button('3'),
+                button('+'),
               ],
             ),
             const SizedBox(
@@ -115,10 +114,10 @@ class _CalculatorState extends State<Calculator> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                button('0',Colors.grey.shade800, Colors.white),
-                button('.',Colors.grey.shade800, Colors.white),
-                button('=',Colors.grey.shade800, Colors.white),
-                button('C',Colors.grey.shade800, Colors.white),
+                button('0'),
+                button('.'),
+                button('='),
+                button('C'),
               ],
             ),
             const SizedBox(
