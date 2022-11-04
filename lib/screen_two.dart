@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'formulas.dart';
-
-
 
 
 class SecondPage extends StatelessWidget {
@@ -100,7 +97,6 @@ class CalculationWidgetState extends State<CalculationWidget> {
             ),
           ),
         ],
-
       ),
     );
   }
