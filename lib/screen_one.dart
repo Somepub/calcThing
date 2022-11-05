@@ -1,6 +1,6 @@
 import 'package:calc/screen_two.dart';
 import 'package:flutter/material.dart';
-import 'button_function.dart';
+import 'logic.dart';
 
 class Calculator extends StatefulWidget {
   const Calculator({Key? key}) : super(key: key);
@@ -56,7 +56,7 @@ class _CalculatorState extends State<Calculator> {
               children: const [
                 Padding(padding: EdgeInsets.all(5),
                   child: Text(
-                    '',
+                    '0',
                     textAlign: TextAlign.left,
                     style: TextStyle(color: Colors.white, fontSize: 100),
                   ),
