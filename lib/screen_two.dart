@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'formulas.dart';
 
-
 class SecondPage extends StatelessWidget {
   const SecondPage({super.key});
 
@@ -83,7 +82,7 @@ class CalculationWidgetState extends State<CalculationWidget> {
           ),
 
           Padding(
-            padding: const EdgeInsets.all(100),
+            padding:  const EdgeInsets.all(100),
             child: ElevatedButton(
               onPressed: dataIsEntered
                   ? () {
@@ -91,7 +90,7 @@ class CalculationWidgetState extends State<CalculationWidget> {
                   result = kilometers(m).toString();
                 });
               }
-                  : null,
+              : null,
               child: const Text("To kilometers"),
             ),
           ),
