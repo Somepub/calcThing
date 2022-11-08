@@ -31,10 +31,7 @@ class _CalculatorState extends State<Calculator> {
         actions: <Widget>[
           TextButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const SecondPage()),
-              );
+              ToSecondPage.func(context);
             },
             child: Container(
               color: Colors.purple,
