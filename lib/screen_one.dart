@@ -1,4 +1,3 @@
-import 'package:calc/screen_two.dart';
 import 'package:flutter/material.dart';
 import 'logic.dart';
 
