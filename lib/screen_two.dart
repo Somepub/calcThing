@@ -51,7 +51,6 @@ class CalculationWidgetState extends State<CalculationWidget> {
                             dataIsEntered = true;
                           });
                         } else {
-                          m = 0;
                           setState(() {
                             dataIsEntered = false;
                           });
