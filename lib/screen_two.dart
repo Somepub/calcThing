@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'logic.dart';
 
 class SecondPage extends StatelessWidget {

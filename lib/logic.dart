@@ -11,8 +11,8 @@ class ToSecondPage {
 }
 
 class Calculation {
-  String calcMiles(m) {
-    return miles(m).toString();
+  String calcMiles(inputNumber) {
+    return miles(inputNumber).toString();
   }
 
   String calcKiloMeters(m) {
