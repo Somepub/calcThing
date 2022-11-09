@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'formulas.dart';
+
+import 'logic.dart';
 
 class SecondPage extends StatelessWidget {
   const SecondPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,18 +17,17 @@ class SecondPage extends StatelessWidget {
     );
   }
 }
-
 class CalculationWidget extends StatefulWidget {
   const CalculationWidget({super.key});
-
   @override
   CalculationWidgetState createState() => CalculationWidgetState();
 }
 
 class CalculationWidgetState extends State<CalculationWidget> {
-  late double m;
+  late double inputNumber;
   String result = '';
   bool dataIsEntered = false;
+  Calculation calculation = Calculation();
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +44,7 @@ class CalculationWidgetState extends State<CalculationWidget> {
                       keyboardType: TextInputType.number,
                       onChanged: (String number) {
                         if (number.isNotEmpty) {
-                          m = double.parse(number.replaceAll(",", '.'));
+                          inputNumber = double.parse(number.replaceAll(",", '.'));
                           setState(() {
                             dataIsEntered = true;
                           });
@@ -70,27 +69,25 @@ class CalculationWidgetState extends State<CalculationWidget> {
           Padding(
             padding: const EdgeInsets.all(0),
             child: ElevatedButton(
-              onPressed: dataIsEntered
-                  ? () {
-                setState(() {
-                  result = miles(m).toString();
-                });
-              }
-                  : null,
+              onPressed: () => {
+                if(dataIsEntered) {
+                  setState(() {
+                    result = calculation.calcMiles(inputNumber);
+                  })
+                }
+              },
               child: const Text("To miles"),
             ),
           ),
 
           Padding(
-            padding:  const EdgeInsets.all(100),
+            padding: const EdgeInsets.all(100),
             child: ElevatedButton(
-              onPressed: dataIsEntered
-                  ? () {
+              onPressed: () => {
                 setState(() {
-                  result = kilometers(m).toString();
-                });
-              }
-              : null,
+                  result = calculation.calcKiloMeters(inputNumber);
+                })
+              },
               child: const Text("To kilometers"),
             ),
           ),
