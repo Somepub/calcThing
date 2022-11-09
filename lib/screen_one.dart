@@ -42,6 +42,19 @@ class _CalculatorState extends State<Calculator> {
               ),
             ),
           ),
+          TextButton(
+              onPressed: (){
+                ToHistoryPage.func2(context);
+              },
+            child: Container(
+            color: Colors.purple,
+            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+            child: const Text(
+              'History',
+              style: TextStyle(color: Colors.white, fontSize: 15.0),
+            ),
+          ),
+          ),
         ],
       ),
       body: Padding(
