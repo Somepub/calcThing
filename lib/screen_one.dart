@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'logic.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'history_page.dart';
+
 
 class Calculator extends StatefulWidget {
   const Calculator({Key? key}) : super(key: key);
