@@ -128,7 +128,7 @@ class _CalculatorState extends State<Calculator> {
 
 
 
-// logic for the calculator
+// logic for most buttons in the calculator
 
   double firstNumber = 0;
   double secondNumber = 0;
