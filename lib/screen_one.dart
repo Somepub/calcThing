@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'logic.dart';
 
@@ -50,7 +49,7 @@ class _CalculatorState extends State<Calculator> {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
-              children:  [
+              children: [
                 Padding(padding: const EdgeInsets.all(5),
                   child: Text(
                     output,
@@ -63,11 +62,14 @@ class _CalculatorState extends State<Calculator> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                button('<'),
                 button('C'),
+                button('+'),
+                button('/'),
+                button('-'),
+
               ],
             ),
-            const SizedBox(
+             const SizedBox(
               height: 45,
             ),
             Row(
@@ -88,7 +90,7 @@ class _CalculatorState extends State<Calculator> {
                 button('4'),
                 button('5'),
                 button('6'),
-                button('-'),
+                button('%'),
               ],
             ),
             const SizedBox(
@@ -100,7 +102,7 @@ class _CalculatorState extends State<Calculator> {
                 button('1'),
                 button('2'),
                 button('3'),
-                button('+'),
+                button('+/-'),
               ],
             ),
             const SizedBox(
@@ -111,8 +113,8 @@ class _CalculatorState extends State<Calculator> {
               children: [
                 button('0'),
                 button('.'),
+                button('AC'),
                 button('='),
-                button('/'),
               ],
             ),
             const SizedBox(
@@ -125,6 +127,7 @@ class _CalculatorState extends State<Calculator> {
   }
 
 
+
 // logic for the calculator
 
   double firstNumber = 0;
@@ -134,21 +137,50 @@ class _CalculatorState extends State<Calculator> {
   String operation = "";
 
   void calc(buttonText) {
-    if (kDebugMode) {
-      print(buttonText);
-    }
-
-    if(buttonText == "C"){
+    if (buttonText == "C") {
       out = "0";
       firstNumber = 0;
       secondNumber = 0;
       operation = "";
     }
-    else if (buttonText ==  "-" || buttonText ==  "+" || buttonText == "/" || buttonText == "*"){
-
-
+    else if (buttonText == "-" || buttonText == "+" || buttonText == "/" ||
+        buttonText == "*") {
+      firstNumber = double.parse(output);
+      operation = buttonText;
+      out = "0";
+      output = output + buttonText;
     }
+    else if (buttonText == ".") {
+      if (out.contains(".")) {
+        return;
+      }
+      else {
+        out = out + buttonText;
+      }
+    }
+    else if (buttonText == "=") {
+      secondNumber = double.parse(output);
+      if (operation == "+") {
+        out = (firstNumber + secondNumber).toString();
+      }
+      if (operation == "*") {
+        out = (firstNumber * secondNumber).toString();
+      }
+      if (operation == "-") {
+        out = (firstNumber - secondNumber).toString();
+      }
+      if (operation == "/") {
+        out = (firstNumber / secondNumber).toString();
+      }
+      firstNumber = 0.0;
+      secondNumber = 0.0;
+    }
+    else{
+      out = out + buttonText;
+    }
+    setState(() {
+      output = double.parse(out).toStringAsFixed(2);
 
-
+    });
   }
 }
