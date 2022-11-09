@@ -26,6 +26,7 @@ class CalculationWidgetState extends State<CalculationWidget> {
   late double inputNumber;
   String result = '';
   bool dataIsEntered = false;
+
   Calculation calculation = Calculation();
 
   @override
