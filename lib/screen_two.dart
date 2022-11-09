@@ -70,11 +70,10 @@ class CalculationWidgetState extends State<CalculationWidget> {
             padding: const EdgeInsets.all(0),
             child: ElevatedButton(
               onPressed: () => {
-                if(dataIsEntered) {
                   setState(() {
                     result = calculation.calcMiles(inputNumber);
                   })
-                }
+
               },
               child: const Text("To miles"),
             ),
