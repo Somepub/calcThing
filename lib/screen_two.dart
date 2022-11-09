@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'formulas.dart';
+
+import 'logic.dart';
 
 class SecondPage extends StatelessWidget {
   const SecondPage({super.key});
@@ -26,76 +27,75 @@ class CalculationWidget extends StatefulWidget {
 }
 
 class CalculationWidgetState extends State<CalculationWidget> {
-  late double m;
+  late double inputNumber;
   String result = '';
   bool dataIsEntered = false;
+  Calculation calculation = Calculation();
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
+          children: [
+      Padding(
+      padding: const EdgeInsets.all(50.0),
+      child: Row(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(50.0),
-            child: Row(
-              children: [
-                Expanded(
-                    child: TextField(
-                      decoration: const InputDecoration(hintText: 'Value to convert'),
-                      keyboardType: TextInputType.number,
-                      onChanged: (String number) {
-                        if (number.isNotEmpty) {
-                          m = double.parse(number.replaceAll(",", '.'));
-                          setState(() {
-                            dataIsEntered = true;
-                          });
-                        } else {
-                          setState(() {
-                            dataIsEntered = false;
-                          });
-                        }
-                      },
-                    )),
-              ],
-            ),
-          ),
-
           Expanded(
-            child: Text(
-              result,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
-            ),
-          ),
-
-          Padding(
-            padding: const EdgeInsets.all(0),
-            child: ElevatedButton(
-              onPressed: dataIsEntered
-                  ? () {
-                setState(() {
-                  result = miles(m).toString();
-                });
-              }
-                  : null,
-              child: const Text("To miles"),
-            ),
-          ),
-
-          Padding(
-            padding:  const EdgeInsets.all(100),
-            child: ElevatedButton(
-              onPressed: dataIsEntered
-                  ? () {
-                setState(() {
-                  result = kilometers(m).toString();
-                });
-              }
-              : null,
-              child: const Text("To kilometers"),
-            ),
-          ),
+              child: TextField(
+                decoration: const InputDecoration(hintText: 'Value to convert'),
+                keyboardType: TextInputType.number,
+                onChanged: (String number) {
+                  if (number.isNotEmpty) {
+                    inputNumber = double.parse(number.replaceAll(",", '.'));
+                    setState(() {
+                      dataIsEntered = true;
+                    });
+                  } else {
+                    setState(() {
+                      dataIsEntered = false;
+                    });
+                  }
+                },
+              )),
         ],
       ),
+    ),
+
+    Expanded(
+    child: Text(
+    result,
+    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
+    ),
+    ),
+
+    Padding(
+    padding: const EdgeInsets.all(0),
+    child: ElevatedButton(
+    onPressed: () => {
+    if(dataIsEntered) {
+      setState(() {
+        result = calculation.calcMiles(inputNumber);
+      })
+    }
+    },
+    child: const Text("To miles"),
+    ),
+    ),
+
+    Padding(
+    padding: const EdgeInsets.all(100),
+    child: ElevatedButton(
+    onPressed: () => {
+      setState(() {
+        result = calculation.calcKiloMeters(inputNumber);
+      })
+    },
+    child: const Text("To kilometers"),
+    ),
+    ),
+    ],
+    ),
     );
   }
 }
