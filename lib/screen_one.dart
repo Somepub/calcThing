@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'logic.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Calculator extends StatefulWidget {
   const Calculator({Key? key}) : super(key: key);
@@ -137,28 +137,7 @@ class _CalculatorState extends State<Calculator> {
   String operation = "";
 
   void calc(buttonText) {
-    if (buttonText == "C") {
-      out = "0";
-      firstNumber = 0;
-      secondNumber = 0;
-      operation = "";
-    }
-    else if (buttonText == "-" || buttonText == "+" || buttonText == "/" ||
-        buttonText == "*") {
-      firstNumber = double.parse(output);
-      operation = buttonText;
-      out = "0";
-      output = output + buttonText;
-    }
-    else if (buttonText == ".") {
-      if (out.contains(".")) {
-        return;
-      }
-      else {
-        out = out + buttonText;
-      }
-    }
-    else if (buttonText == "=") {
+    if (buttonText == "=") {
       secondNumber = double.parse(output);
       if (operation == "+") {
         out = (firstNumber + secondNumber).toString();
@@ -175,12 +154,24 @@ class _CalculatorState extends State<Calculator> {
       firstNumber = 0.0;
       secondNumber = 0.0;
     }
+    else if (buttonText == "-" || buttonText == "+" || buttonText == "/" ||
+        buttonText == "*") {
+      firstNumber = double.parse(output);
+      operation = buttonText;
+      out = "0";
+      output = output + buttonText;
+    }
+    else if (buttonText == "C") {
+      out = "0";
+      firstNumber = 0;
+      secondNumber = 0;
+      operation = "";
+    }
     else{
       out = out + buttonText;
     }
     setState(() {
       output = double.parse(out).toStringAsFixed(2);
-
     });
   }
 }
