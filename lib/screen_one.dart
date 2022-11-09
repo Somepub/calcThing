@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'logic.dart';
 
@@ -10,17 +11,16 @@ class Calculator extends StatefulWidget {
 }
 
 class _CalculatorState extends State<Calculator> {
-  Widget button(String buttonText){
+  Widget button(String buttonText) {
     return ElevatedButton(
-      onPressed: (){
-        buttonFunction();
-      },
-      child: Text(buttonText,style:const TextStyle(
-          fontSize: 20,
+      onPressed: () => {calc(buttonText)},
+      child: Text(buttonText, style: const TextStyle(
+        fontSize: 20,
       ),
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,12 +50,12 @@ class _CalculatorState extends State<Calculator> {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: const [
-                Padding(padding: EdgeInsets.all(5),
+              children:  [
+                Padding(padding: const EdgeInsets.all(5),
                   child: Text(
-                    '0',
+                    output,
                     textAlign: TextAlign.left,
-                    style: TextStyle(color: Colors.white, fontSize: 100),
+                    style: const TextStyle(color: Colors.white, fontSize: 100),
                   ),
                 )
               ],
@@ -63,10 +63,8 @@ class _CalculatorState extends State<Calculator> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                button('AC'),
-                button('+/-'),
-                button('%'),
-                button('/'),
+                button('<'),
+                button('C'),
               ],
             ),
             const SizedBox(
@@ -78,7 +76,7 @@ class _CalculatorState extends State<Calculator> {
                 button('7'),
                 button('8'),
                 button('9'),
-                button('X'),
+                button('*'),
               ],
             ),
             const SizedBox(
@@ -114,7 +112,7 @@ class _CalculatorState extends State<Calculator> {
                 button('0'),
                 button('.'),
                 button('='),
-                button('C'),
+                button('/'),
               ],
             ),
             const SizedBox(
@@ -124,5 +122,33 @@ class _CalculatorState extends State<Calculator> {
         ),
       ),
     );
+  }
+
+
+// logic for the calculator
+
+  double firstNumber = 0;
+  double secondNumber = 0;
+  String output = "0";
+  String out = "0";
+  String operation = "";
+
+  void calc(buttonText) {
+    if (kDebugMode) {
+      print(buttonText);
+    }
+
+    if(buttonText == "C"){
+      out = "0";
+      firstNumber = 0;
+      secondNumber = 0;
+      operation = "";
+    }
+    else if (buttonText ==  "-" || buttonText ==  "+" || buttonText == "/" || buttonText == "*"){
+
+
+    }
+
+
   }
 }
