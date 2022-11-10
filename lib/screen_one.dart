@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'logic.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 class Calculator extends StatefulWidget {
@@ -20,6 +21,10 @@ class _CalculatorState extends State<Calculator> {
     );
   }
 
+  static List<String> historyList = [];
+  static int iteration = 1;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +34,7 @@ class _CalculatorState extends State<Calculator> {
         actions: <Widget>[
           TextButton(
             onPressed: () {
-              ToSecondPage.func(context);
+              ToConverterPage.func(context);
             },
             child: Container(
               color: Colors.purple,
@@ -39,6 +44,20 @@ class _CalculatorState extends State<Calculator> {
                 style: TextStyle(color: Colors.white, fontSize: 15.0),
               ),
             ),
+          ),
+          TextButton(
+              onPressed: (){
+                ToHistoryPage.func2(context);
+                addHistoryListToSF();
+              },
+            child: Container(
+            color: Colors.purple,
+            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+            child: const Text(
+              'History',
+              style: TextStyle(color: Colors.white, fontSize: 15.0),
+            ),
+          ),
           ),
         ],
       ),
@@ -70,7 +89,7 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
              const SizedBox(
-              height: 45,
+              height: 55,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -82,7 +101,7 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
             const SizedBox(
-              height: 45,
+              height: 55,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -94,7 +113,7 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
             const SizedBox(
-              height: 45,
+              height: 55,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -106,7 +125,7 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
             const SizedBox(
-              height: 45,
+              height: 55,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -118,7 +137,7 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
             const SizedBox(
-              height: 45,
+              height: 55,
             ),
           ],
         ),
@@ -137,28 +156,7 @@ class _CalculatorState extends State<Calculator> {
   String operation = "";
 
   void calc(buttonText) {
-    if (buttonText == "C") {
-      out = "0";
-      firstNumber = 0;
-      secondNumber = 0;
-      operation = "";
-    }
-    else if (buttonText == "-" || buttonText == "+" || buttonText == "/" ||
-        buttonText == "*") {
-      firstNumber = double.parse(output);
-      operation = buttonText;
-      out = "0";
-      output = output + buttonText;
-    }
-    else if (buttonText == ".") {
-      if (out.contains(".")) {
-        return;
-      }
-      else {
-        out = out + buttonText;
-      }
-    }
-    else if (buttonText == "=") {
+    if (buttonText == "=") {
       secondNumber = double.parse(output);
       if (operation == "+") {
         out = (firstNumber + secondNumber).toString();
@@ -175,12 +173,33 @@ class _CalculatorState extends State<Calculator> {
       firstNumber = 0.0;
       secondNumber = 0.0;
     }
+    else if (buttonText == "-" || buttonText == "+" || buttonText == "/" ||
+        buttonText == "*") {
+      firstNumber = double.parse(output);
+      operation = buttonText;
+      out = "0";
+      output = output + buttonText;
+    }
+    else if (buttonText == "C") {
+      out = "0";
+      firstNumber = 0;
+      secondNumber = 0;
+      operation = "";
+    }
     else{
       out = out + buttonText;
     }
     setState(() {
       output = double.parse(out).toStringAsFixed(2);
-
     });
+  }
+
+
+  addHistoryListToSF() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    for (var entry in historyList) {
+      prefs.setString(iteration.toString(), entry);
+      iteration++;
+    }
   }
 }
