@@ -6,11 +6,11 @@ import 'history_page.dart';
 // the logic for the calculator is in the screen_one.dart file
 
 
-class ToSecondPage {
+class ToConverterPage {
   static void func(BuildContext context) =>
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const SecondPage()),
+        MaterialPageRoute(builder: (context) => const ConverterPage()),
       );
 }
 

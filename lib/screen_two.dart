@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'logic.dart';
 
-class SecondPage extends StatelessWidget {
-  const SecondPage({super.key});
+class ConverterPage extends StatelessWidget {
+  const ConverterPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

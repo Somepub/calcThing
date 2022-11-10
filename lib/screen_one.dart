@@ -35,7 +35,7 @@ class _CalculatorState extends State<Calculator> {
         actions: <Widget>[
           TextButton(
             onPressed: () {
-              ToSecondPage.func(context);
+              ToConverterPage.func(context);
             },
             child: Container(
               color: Colors.purple,
@@ -48,6 +48,7 @@ class _CalculatorState extends State<Calculator> {
           ),
           TextButton(
               onPressed: (){
+                addHistoryListToSF();
                 ToHistoryPage.func2(context);
               },
             child: Container(
