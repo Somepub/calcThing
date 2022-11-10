@@ -22,6 +22,10 @@ class _CalculatorState extends State<Calculator> {
     );
   }
 
+  static List<String> historyList = [];
+  static int iteration = 1;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -188,5 +192,14 @@ class _CalculatorState extends State<Calculator> {
     setState(() {
       output = double.parse(out).toStringAsFixed(2);
     });
+  }
+
+
+  addHistoryListToSF() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    for (var entry in historyList) {
+      prefs.setString(iteration.toString(), entry);
+      iteration++;
+    }
   }
 }

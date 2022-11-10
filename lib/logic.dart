@@ -5,6 +5,7 @@ import 'history_page.dart';
 
 // the logic for the calculator is in the screen_one.dart file
 
+
 class ToSecondPage {
   static void func(BuildContext context) =>
       Navigator.push(
@@ -12,6 +13,16 @@ class ToSecondPage {
         MaterialPageRoute(builder: (context) => const SecondPage()),
       );
 }
+
+
+class ToHistoryPage {
+  static void func2(BuildContext context) =>
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const HistoryPage()),
+      );
+}
+
 
 class Calculation {
   String calcMiles(inputNumber) {
@@ -23,10 +34,3 @@ class Calculation {
   }
 }
 
-class ToHistoryPage {
-  static void func2(BuildContext context) =>
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const HistoryPage()),
-      );
-}
