@@ -47,8 +47,8 @@ class _CalculatorState extends State<Calculator> {
           ),
           TextButton(
               onPressed: (){
-                addHistoryListToSF();
                 ToHistoryPage.func2(context);
+                addHistoryListToSF();
               },
             child: Container(
             color: Colors.purple,
@@ -89,7 +89,7 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
              const SizedBox(
-              height: 60,
+              height: 55,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -101,7 +101,7 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
             const SizedBox(
-              height: 60,
+              height: 55,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -113,7 +113,7 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
             const SizedBox(
-              height: 60,
+              height: 55,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -125,7 +125,7 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
             const SizedBox(
-              height: 60,
+              height: 55,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -137,7 +137,7 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
             const SizedBox(
-              height: 60,
+              height: 55,
             ),
           ],
         ),
