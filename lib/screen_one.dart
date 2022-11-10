@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'logic.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'history_page.dart';
 
 
 class Calculator extends StatefulWidget {
@@ -90,7 +89,7 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
              const SizedBox(
-              height: 45,
+              height: 60,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -102,7 +101,7 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
             const SizedBox(
-              height: 45,
+              height: 60,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -114,7 +113,7 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
             const SizedBox(
-              height: 45,
+              height: 60,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -126,7 +125,7 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
             const SizedBox(
-              height: 45,
+              height: 60,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -138,7 +137,7 @@ class _CalculatorState extends State<Calculator> {
               ],
             ),
             const SizedBox(
-              height: 45,
+              height: 60,
             ),
           ],
         ),
