@@ -73,7 +73,6 @@ class CalculationWidgetState extends State<CalculationWidget> {
                   setState(() {
                     result = calculation.calcMiles(inputNumber);
                   })
-
               },
               child: const Text("To miles"),
             ),

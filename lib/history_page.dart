@@ -10,7 +10,7 @@ class HistoryPage extends StatefulWidget {
 }
 
 class HistoryPageState extends State<HistoryPage> {
-  static List<String> ourList = ['All equations:'];
+  List<String> ourList = [];
 
   @override
   void initState() {
@@ -42,16 +42,21 @@ class HistoryPageState extends State<HistoryPage> {
   }
 
   getAll() async {
-    for (int i = 1; i < 100; i++) {
-      var entry = await getStringValuesSF(i.toString());
-      ourList.add(entry);
-    }
+    var values = await getStringValuesSF();
+    setState(() {
+      ourList = ['All equations:', ...values ];
+    });
   }
 
-  getStringValuesSF(String value) async {
+  Future<List<String>> getStringValuesSF() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String? stringValue = prefs.getString(value);
-    return stringValue;
+    var keys = prefs.getKeys();
+
+    var prefsMap = Map<String, String>();
+    for(String key in keys) {
+      prefsMap[key] = prefs.getString(key)!;
+    }
+    return prefsMap.entries.map((entry) => entry.value).toList();
   }
 }
 

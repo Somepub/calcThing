@@ -11,19 +11,20 @@ class Calculator extends StatefulWidget {
 }
 
 class _CalculatorState extends State<Calculator> {
+  static List<String> historyList = [];
+  static int iteration = 1;
+
   Widget button(String buttonText) {
     return ElevatedButton(
-      onPressed: () => {calc(buttonText)},
+      onPressed: () => {
+        calc(buttonText)
+      },
       child: Text(buttonText, style: const TextStyle(
         fontSize: 20,
       ),
       ),
     );
   }
-
-  static List<String> historyList = [];
-  static int iteration = 1;
-
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +47,9 @@ class _CalculatorState extends State<Calculator> {
             ),
           ),
           TextButton(
-              onPressed: (){
+              onPressed:() async {
+                await addHistoryListToSF();
                 ToHistoryPage.func2(context);
-                addHistoryListToSF();
               },
             child: Container(
             color: Colors.purple,
@@ -157,7 +158,9 @@ class _CalculatorState extends State<Calculator> {
 
   void calc(buttonText) {
     if (buttonText == "=") {
+
       secondNumber = double.parse(output);
+
       if (operation == "+") {
         out = (firstNumber + secondNumber).toString();
       }
@@ -170,6 +173,7 @@ class _CalculatorState extends State<Calculator> {
       if (operation == "/") {
         out = (firstNumber / secondNumber).toString();
       }
+      historyList.add(out);
       firstNumber = 0.0;
       secondNumber = 0.0;
     }
